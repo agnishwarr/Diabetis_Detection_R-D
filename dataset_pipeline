@@ -1,0 +1,19 @@
+digraph "Dataset Processing Pipeline" {
+	A [label="PIMA Dataset"]
+	B [label="FHGDD Dataset"]
+	C [label="Merged Dataset (PIMA + FHGDD)"]
+	D [label="SMOTE Data Augmentation"]
+	E [label="Augmented Dataset"]
+	F [label="Final Combined Dataset (Original + Augmented)"]
+	G [label="Model Training & Evaluation"]
+	H [label="Performance Metrics:
+Accuracy, F1, Recall, Precision"]
+	A -> C [label=Merge]
+	B -> C [label=Merge]
+	C -> D [label="Apply SMOTE"]
+	D -> E [label="Generate Augmented Data"]
+	C -> F [label=Combine]
+	E -> F [label=Combine]
+	F -> G [label="Train & Evaluate Model"]
+	G -> H [label="Compute Metrics"]
+}
